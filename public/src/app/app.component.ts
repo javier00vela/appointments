@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PersonUtilsService } from './services/person/person.Utils.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'public';
+
+  constructor(public personUtilsService:PersonUtilsService){
+    this.personUtilsService.auth();
+
+    
+  }
 }
