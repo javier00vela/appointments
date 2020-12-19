@@ -7,20 +7,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './interceptors/http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './templates/admin/admin.component';
-import { AdminHeaderComponent } from './components/admin/admin-header/admin-header.component';
-import { AdminComponentsModule } from './components/admin/admin.module';
-
+import { AdminModule } from './templates/admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RolPipe,
-    AdminComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AdminComponentsModule,
+    AdminModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],

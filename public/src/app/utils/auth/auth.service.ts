@@ -13,9 +13,10 @@ export class AuthService {
         localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
     }          
 
-    public  logout() {
+    public  logout(callaback: ()=> void) {
         localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
+        callaback();
     }
 
     public isLoggedIn() {

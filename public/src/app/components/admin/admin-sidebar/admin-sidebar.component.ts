@@ -3,21 +3,23 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/utils/auth/auth.service';
 
 @Component({
-  selector: 'app-admin-header',
-  templateUrl: './admin-header.component.html',
-  styleUrls: ['./admin-header.component.scss']
+  selector: 'app-admin-sidebar',
+  templateUrl: './admin-sidebar.component.html',
+  styleUrls: ['./admin-sidebar.component.scss']
 })
-export class AdminHeaderComponent implements OnInit {
+export class AdminSidebarComponent implements OnInit {
 
   constructor(private auth:AuthService , private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  logOut(){
+  public logOut(){
+  
+    
     this.auth.logout(()=>{
+      console.log("click event");
       this.router.navigate(["login"]);
     })
   }
-
 }
