@@ -14,11 +14,11 @@ export class CrudService {
 
 
   protected  getAll(route : string) : Observable<IResponse<[]>> {
-    return   this.http.get(`${environment.router.back}/${route}`).pipe(map((data:any) => data ) , catchError((err , caught) => caught));
+    return   this.http.get(`${environment.router.back}/${route}`).pipe(map((data:any) => data.data ) );
   }
 
   protected  getById(route : string , id : number) : Observable<IResponse<Object | JSON>> {
-    return   this.http.get(`${environment.router.back}/${route}/${id}`).pipe(map((data:any) => data) , catchError((err , caught) => caught));
+    return   this.http.get(`${environment.router.back}/${route}/${id}`).pipe(map((data:any) => data) );
   }
 
   protected  post(route : string , data : JSON | Object | []) : Observable<IResponse<Object | JSON>> {

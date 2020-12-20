@@ -1,1 +1,26 @@
-<p>list-appointment works! </p>
+<div class="w100" fxFlex.gt-md="100" fxLayout.lt-lg="100">
+  <mat-form-field  class="w100" appearance="outline" class="formField">
+    <mat-label>Buscar</mat-label>
+    <input class="w100" matInput placeholder="name" />
+  </mat-form-field>
+</div>
+
+<div class="mat-table orders-table">
+  <div class="mat-header-row">
+    <div class="mat-header-cell">Numero</div>
+    <div class="mat-header-cell">Fecha</div>
+    <div class="mat-header-cell">Doctor/es</div>
+    <div class="mat-header-cell">Pacient/s</div>
+    <div class="mat-header-cell">Opciones</div>
+  </div>
+  <div class="mat-row">
+    <div class="mat-cell"><span class="order"></span></div>
+    <div class="mat-cell">aaa</div>
+    <div class="mat-cell">eee</div>
+    <div class="mat-cell">aaaaa</div>
+    <div class="mat-cell">
+        <a  mat-button [routerLink]="['/admin/register-observation']">observaciones</a>
+        <a  mat-button [routerLink]="['/admin/register-diagnostic']">resultado</a>
+    </div>
+  </div>
+</div>

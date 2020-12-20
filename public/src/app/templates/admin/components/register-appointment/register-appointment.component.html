@@ -1,1 +1,56 @@
-<p>register-appointment works!</p>
+<div style="width: 100%">
+    <h2 class="text-center">Registrar Cita</h2>
+  <form [formGroup]="form">
+    <div fxFlex.gt-md="100" fxLayout.lt-lg="100">
+      <mat-form-field appearance="outline" class="formField">
+        <mat-label>Fecha Cita</mat-label>
+        <input matInput placeholder="name" formControlName="dateControl" />
+     
+        <mat-error *ngIf="dateControl?.hasError('required')">
+          La fecha de la cita es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex.gt-md="100" fxLayout.lt-lg="100">
+      <mat-form-field appearance="outline" class="formField">
+        <mat-label>Oficina</mat-label>
+        <mat-select matInput formControlName="officeControl">
+          <mat-option *ngFor="let office of listOffice | async" >{{ office.numberOffice }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="officeControl?.hasError('required')">
+            La fecha de la cita es <strong>requerida</strong>
+          </mat-error>
+      </mat-form-field>
+    </div>
+ 
+      <div fxFlex.gt-md="100" fxLayout.lt-lg="100">
+        <mat-form-field appearance="outline" class="formField">
+          <mat-label>Doctor</mat-label>
+          <mat-select multiple matInput formControlName="doctorControl">
+            <mat-option>hombre</mat-option>
+          </mat-select>
+          <mat-error *ngIf="doctorControl?.hasError('required')">
+            La fecha de la cita es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div fxFlex.gt-md="100" fxLayout.lt-lg="100">
+        <mat-form-field appearance="outline" class="formField">
+          <mat-label>Paciente</mat-label>
+          <mat-select multiple matInput formControlName="patientControl">
+            <mat-option>paceinte</mat-option>
+          </mat-select>
+          <mat-error *ngIf="patientControl?.hasError('required')">
+            La fecha de la cita es <strong>requerida</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" class="w100">Enviar</button>
+
+
+  </form>
+</div>

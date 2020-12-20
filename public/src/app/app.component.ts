@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'public';
 
   constructor(public personUtilsService:PersonUtilsService){
-    this.personUtilsService.auth();
+   
 
     
   }

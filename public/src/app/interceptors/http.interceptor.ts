@@ -13,9 +13,13 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     if (idToken) {
         const cloned = req.clone({
-            headers: req.headers.set("Authorization",
-                "Bearer " + idToken)
-        });
+        
+            // headers: req.headers.set("Authorization",
+            //     "Bearer " + idToken).set("Content-Type", 'application/json')
+            //     .set("Access-Control-Allow-Origin","GET, POST, PATCH, PUT, DELETE, OPTIONS")
+            //     .set("Access-Control-Allow-Headers", 'Access-Control-Allow-Headers')
+            //     .set("Access-Control-Allow-Origin","*")
+        }); 
 
         return next.handle(cloned);
     }

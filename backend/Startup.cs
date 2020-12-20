@@ -15,6 +15,7 @@ namespace backend
 {
     public class Startup
     {
+       
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,12 +26,37 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsAllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+
+                options.AddPolicy("CorsAllowSpecific",
+                    p => p.WithHeaders("Content-Type", "Accept", "Auth-Token")
+                        .WithMethods("POST", "PUT", "DELETE" , "GET")
+                        .SetPreflightMaxAge(new TimeSpan(1728000))
+                        .AllowAnyOrigin()
+                        .AllowCredentials()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                    );
+            });
             services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -40,7 +66,7 @@ namespace backend
 
             app.UseRouting();
 
-            app.UseAuthorization();
+     
 
             app.UseEndpoints(endpoints =>
             {

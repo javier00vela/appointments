@@ -12,9 +12,17 @@ import { ListAppointmentComponent } from './components/list-appointment/list-app
 import { RouterModule } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
 import { HistoryComponent } from './components/history/history.component';
+import {MatSelectModule} from '@angular/material/select'
+import {MatInputModule} from '@angular/material/input'
+import {MatTableModule} from '@angular/material/table'
 import { RegisterAppointmentComponent } from './components/register-appointment/register-appointment.component';
 import { RegisterObservationComponent } from './components/register-observation/register-observation.component';
 import { RegisterDiagnosticComponent } from './components/register-diagnostic/register-diagnostic.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CdkTableModule} from '@angular/cdk/table';
+import {DataSource} from '@angular/cdk/table';
+
+
 export const routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
   { path: 'list', component: ListAppointmentComponent },
@@ -27,13 +35,20 @@ export const routes = [
   declarations: [
     AdminComponent,
     IndexComponent,
+    ListAppointmentComponent,
     HistoryComponent,
     RegisterAppointmentComponent,
     RegisterObservationComponent,
     RegisterDiagnosticComponent
   ],
   imports: [
+    CdkTableModule,
     CommonModule,
+    MatInputModule,
+    MatTableModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -45,6 +60,9 @@ export const routes = [
   ],
   exports : [
     AdminComponent
+  ],
+  providers :[
+    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

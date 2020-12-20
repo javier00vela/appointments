@@ -1,1 +1,33 @@
-<p>register-observation works!</p>
+<div style="width: 100%">
+  <h2 class="text-center">Registrar Observación</h2>
+  
+  <form [formGroup]="form">
+    <div fxFlex.gt-md="100" fxLayout.lt-lg="100">
+      <mat-form-field appearance="outline" class="formField" class="w100">
+        <mat-label>Fecha Cita</mat-label>
+        <textarea rows="20" matInput placeholder="name" formControlName="observacionControl" ></textarea>
+
+        <mat-error *ngIf="observacionControl?.hasError('required')">
+          La fecha de la cita es <strong>requerida</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" class="w100">Enviar</button>
+  </form>
+</div>
+<hr>
+<h2 class="text-center">Lista de Observación</h2>
+  <div class="mat-table orders-table">
+    <div class="mat-header-row">
+        <div class="mat-header-cell">Numero</div>
+        <div class="mat-header-cell">Fecha</div>
+        <div class="mat-header-cell">Motivo</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-cell"><span class="order"></span></div>
+      <div class="mat-cell">aaa</div>
+      <div class="mat-cell">eee</div>
+    </div>
+  </div>
+  
