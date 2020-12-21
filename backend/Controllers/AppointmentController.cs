@@ -5,7 +5,7 @@ namespace backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class OfficeController : ControllerBase
+    public class AppointmentController : ControllerBase
     {
         private OfficeDao officeDao = new OfficeDao();
 
